@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<link th:href="@{/css/styles.css}" rel="stylesheet">
+<title>Inventory</title>
+</head>
+<body>
+
+	<div align="center">
+		<div>
+			<h1>Inventory Search</h1>
+		</div>
+		<br/>
+		<div>
+			<form th:action="@{/}">
+				Filter: 
+				<input type="text" name="keyword" id="keyword" size="50"
+					th:value="${keyword}" required />
+				&nbsp; 
+				<input type="submit" value="Search" />
+				&nbsp;
+			</form>
+		</div>
+		<br/>
+		<div>
+			<table border="1" cellpadding="5">
+				<tr>
+					<th>Product ID</th>
+					<th>Supplier</th>
+					<th>Brand ID</th>
+					<th>Brand Name</th>
+					<th>Item Name</th>
+					<th>Description</th>
+					<th>Type</th>
+					<th>Category</th>
+					<th>Subcategory</th>
+					<th>Original Price</th>
+					<th>Wholesale Price</th>
+					<th>Retail Price</th>
+					<th>Partner Price</th>
+					<th>Units</th>
+				</tr>
+				<tr th:each="inventory : ${listInventory}">
+					<td th:text="${inventory.productId}">Product ID</td>
+					<td th:text="${inventory.supplierName}">Supplier</td>
+					<td th:text="${inventory.brandId}">Brand ID</td>
+					<td th:text="${inventory.brandName}">Brand Name</td>
+					<td th:text="${inventory.itemName}">Item Name</td>
+					<td th:text="${inventory.invdescription}">Description</td>
+					<td th:text="${inventory.invtype}">Type</td>
+					<td th:text="${inventory.category}">Category</td>
+					<td th:text="${inventory.subCategory}">Subcategory</td>
+					<td th:text="${inventory.originalPrice}">Original Price</td>
+					<td th:text="${inventory.wholesalePrice}">Wholesale Price</td>
+					<td th:text="${inventory.retailPrice}">Retail Price</td>
+					<td th:text="${inventory.partnerPrice}">Partner Price</td>
+					<td th:text="${inventory.units}">Units</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+
+</body>
+</html>
